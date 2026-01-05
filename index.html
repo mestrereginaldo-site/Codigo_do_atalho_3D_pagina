@@ -1,104 +1,196 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Código do Atalho | Dr. Reginaldo Oliveira</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        @keyframes aurora {
+            from { background-position: 50% 50%, 50% 50%; }
+            to { background-position: 350% 50%, 350% 50%; }
         }
-        .text-gold {
-            color: #D4AF37;
+       .animate-aurora {
+            animation: aurora 60s linear infinite;
+            background-image: 
+                repeating-linear-gradient(100deg, #0f172a 0%, #0f172a 7%, transparent 10%, transparent 12%, #0f172a 16%),
+                repeating-linear-gradient(100deg, #3b82f6 10%, #a855f7 15%, #3b82f6 20%, #06b6d4 25%, #3b82f6 30%);
+            background-size: 300% 200%;
+            background-position: 50% 50%;
         }
-        .bg-gold {
-            background-color: #D4AF37;
+       .text-glow {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
-        /* Ajuste de legibilidade para fundos claros */
-        .readable-text {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+       .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px) contrast(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .text-overlay {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px;
-            border-radius: 8px;
+       .shiny-btn {
+            position: relative;
+            overflow: hidden;
+        }
+       .shiny-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
     </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-[#020617] text-slate-200 font-['Inter'] antialiased">
 
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div class="text-2xl font-bold text-gold">C<span class="text-white">A</span></div>
-        <a href="#cta" class="bg-gold text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition">Baixar Agora</a>
-    </nav>
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden animate-aurora">
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-20 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-sm font-semibold mb-6 animate-pulse">
+                    Lançamento Oficial 2026
+                </span>
+                <h1 class="text-5xl md:text-7xl font-['Lexend'] font-extrabold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-slate-400">
+                    O CÓDIGO DO ATALHO
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
+                    Por que o <span class="text-red-400 font-bold">esforço burro</span> te mantém pobre e a <span class="text-green-400 font-bold">preguiça estratégica</span> te deixa rico.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#checkout" class="shiny-btn px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-1 text-white">
+                        DESBLOQUEAR O CÓDIGO — R$ 19,99
+                    </a>
+                </div>
+            </div>
 
-    <section class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2">
-            <h2 class="text-gold font-bold mb-4 uppercase tracking-widest">O Manifesto dos Novos Ricos</h2>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Trabalhar muito <br> <span class="text-gold">é um erro.</span>
-            </h1>
-            <p class="text-xl text-gray-300 mb-8 readable-text">
-                Descubra por que o esforço burro te mantém pobre e como a preguiça estratégica é a única chave real para a riqueza em 2026.
-            </p>
-            <div class="flex items-center gap-4 mb-10">
-                <a href="#cta" class="bg-gold text-black px-8 py-4 rounded-lg font-bold text-xl hover:scale-105 transition">DESBLOQUEAR O CÓDIGO</a>
-                <div>
-                    <span class="block text-2xl font-bold">R$ 19,44</span>
-                    <span class="text-sm text-gold">Valor de Lançamento</span>
+            <div class="flex-1 relative">
+                <div class="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full"></div>
+                <img src="capa.png" alt="Capa do Livro O Código do Atalho" class="relative z-30 w-full max-w-md mx-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.8)] hover:rotate-2 transition-transform duration-500">
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 relative overflow-hidden bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="glass-card p-12 rounded-[2rem] relative z-10 border-blue-500/20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-blue-400">CAPÍTULO 1:</h2>
+                        <h3 class="text-4xl font-extrabold mb-8 text-white leading-tight">A Alavanca Invisível: Como Mover o Mundo com Menos Esforço.</h3>
+                        <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+                            <p class="backdrop-contrast-125 backdrop-blur-sm p-4 rounded-lg bg-white/5 border border-white/10">
+                                Arquimedes descobriu o segredo antes de nós. O seu problema não é falta de força, é falta de um ponto de apoio. Enquanto você tenta mover pedras de 10 toneladas com as mãos, os "novos ricos" constroem máquinas.
+                            </p>
+                            <p class="text-slate-400">
+                                No Capítulo 01, você aprenderá a desconectar seu tempo do seu dinheiro. Se você não ganha dinheiro enquanto dorme, trabalhará até morrer.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 glass-card rounded-2xl text-center">
+                            <span class="text-3xl mb-2 block">⚖️</span>
+                            <h4 class="font-bold text-white mb-2">Escala</h4>
+                            <p class="text-xs text-slate-400">Multiplique seu esforço por 1.000x.</p>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl text-center">
+                            <span class="text-3xl mb-2 block">🤖</span>
+                            <h4 class="font-bold text-white mb-2">Automação</h4>
+                            <p class="text-xs text-slate-400">Robôs que trabalham 24/7 de graça.</p>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl text-center">
+                            <span class="text-3xl mb-2 block">📈</span>
+                            <h4 class="font-bold text-white mb-2">Capital</h4>
+                            <p class="text-xs text-slate-400">O dinheiro trabalhando para você.</p>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl text-center">
+                            <span class="text-3xl mb-2 block">📱</span>
+                            <h4 class="font-bold text-white mb-2">Mídia</h4>
+                            <p class="text-xs text-slate-400">Sua mensagem vendendo para milhões.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-gold opacity-20 blur-xl rounded-full"></div>
-                <img src="LINK_DA_SUA_CAPA_AQUI" alt="Capa do Livro O Código do Atalho" class="relative rounded-lg shadow-2xl border border-gray-800 w-full max-w-sm">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full -z-0"></div>
+    </section>
+
+    <section class="py-24 bg-[#020617]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">O Que Você Vai Aprender</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 glass-card p-10 rounded-3xl hover:border-blue-500/50 transition-colors">
+                    <h3 class="text-2xl font-bold mb-4 text-white">A Matemática do Milhão</h3>
+                    <p class="text-slate-400 mb-6">Pare de tratar o dinheiro com emoção. Aprenda a engenharia reversa da riqueza e descubra qual dos 4 caminhos é o seu.</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-bold text-blue-400">R$ 1M</span>
+                        <span class="text-slate-500">é apenas uma questão de aritmética.</span>
+                    </div>
+                </div>
+                <div class="glass-card p-10 rounded-3xl bg-gradient-to-b from-slate-900 to-blue-900/20">
+                    <h3 class="text-xl font-bold mb-4">Egoísmo Virtuoso</h3>
+                    <p class="text-slate-400 text-sm">Por que colocar a sua máscara de oxigênio primeiro é a única forma de salvar os outros.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-4 italic">"Modo Caverna"</h3>
+                    <p class="text-slate-400 text-sm">O protocolo de desaparecimento estratégico para construir seu império em silêncio.</p>
+                </div>
+                <div class="md:col-span-2 glass-card p-10 rounded-3xl border-green-500/20">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-4 text-green-400">Automação com IA</h3>
+                            <p class="text-slate-400">Como transformar ferramentas de Inteligência Artificial em seu sócio infinito que nunca pede aumento.</p>
+                        </div>
+                        <div class="w-full md:w-48 h-32 bg-green-500/10 rounded-2xl flex items-center justify-center border border-green-500/20">
+                            <span class="text-4xl">🧠+⚡</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-zinc-900 py-20">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-            <div class="text-overlay">
-                <h3 class="text-gold text-xl font-bold mb-4">O Fim do Suor</h3>
-                <p class="text-gray-400">Se esforço fosse riqueza, pedreiros seriam milionários. Aprenda a alavancagem.</p>
-            </div>
-            <div class="text-overlay">
-                <h3 class="text-gold text-xl font-bold mb-4">IA e Robôs</h3>
-                <p class="text-gray-400">Use o exército silencioso para trabalhar 24h por você sem pedir aumento.</p>
-            </div>
-            <div class="text-overlay">
-                <h3 class="text-gold text-xl font-bold mb-4">Protocolo de Saída</h3>
-                <p class="text-gray-400">O plano exato para quando você decide que não precisa mais trabalhar.</p>
+    <section id="checkout" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto glass-card p-12 rounded-[3rem] border-blue-500/30">
+                <h2 class="text-4xl font-extrabold mb-6 text-white leading-tight">Pronto para Pular a Cerca e Pegar o Atalho?</h2>
+                <p class="text-xl text-slate-300 mb-10">
+                    O caminho tradicional está engarrafado. O código está aqui. O preço de uma pizza pode mudar sua árvore genealógica.
+                </p>
+                <div class="bg-slate-900/50 p-6 rounded-2xl mb-10 border border-slate-800">
+                    <span class="text-slate-400 block mb-2 line-through text-sm">De R$ 97,00 por apenas:</span>
+                    <span class="text-5xl font-black text-green-400">R$ 19,99</span>
+                    <span class="block text-xs text-slate-500 mt-2">*Oferta de lançamento por tempo limitado</span>
+                </div>
+                <button class="shiny-btn w-full md:w-auto px-12 py-5 bg-blue-600 rounded-2xl text-xl font-black text-white hover:bg-blue-500 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)]">
+                    QUERO O MEU ACESSO AGORA!
+                </button>
+                <div class="mt-8 flex justify-center gap-6 opacity-50 grayscale hover:grayscale-0 transition-all">
+                    <img src="https://logodownload.org/wp-content/uploads/2014/10/visa-logo.png" class="h-6" alt="Visa">
+                    <img src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo.png" class="h-6" alt="Mastercard">
+                    <img src="https://logodownload.org/wp-content/uploads/2019/08/pix-logo.png" class="h-6" alt="Pix">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/3">
-            <img src="SUA_FOTO_REAL_AQUI" alt="Dr. Reginaldo Oliveira" class="rounded-2xl grayscale hover:grayscale-0 transition duration-500 shadow-2xl">
+    <footer class="py-12 border-t border-slate-900">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; 2026 Dr. Reginaldo Oliveira. Todos os direitos reservados. "O sucesso exige ação."</p>
+            <div class="mt-4 flex justify-center gap-6">
+                <a href="#" class="hover:text-blue-400 transition-colors">Aviso Legal</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Privacidade</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Suporte</a>
+            </div>
         </div>
-        <div class="md:w-2/3">
-            <h2 class="text-gold font-bold uppercase mb-2">O Mentor do Código</h2>
-            <h3 class="text-4xl font-bold mb-6">Dr. Reginaldo Oliveira</h3>
-            <p class="text-gray-400 text-lg mb-6">
-                Advogado e Estrategista. Dedicou a carreira a desmontar o sistema da pobreza e instalar um novo código de riqueza baseado em alavancagem de permissão zero.
-            </p>
-            <p class="italic text-gold text-xl">"O universo não liga para o seu cansaço. Ele só responde à sua eficiência."</p>
-        </div>
-    </section>
-
-    <section id="cta" class="py-20 text-center bg-gold text-black">
-        <h2 class="text-4xl font-extrabold mb-4">Instale o Código Agora.</h2>
-        <p class="text-xl mb-8 font-medium">Acesso imediato ao manual que a escola nunca te deu.</p>
-        <a href="SEU_LINK_DA_AMAZON_OU_CHECKOUT" class="bg-black text-white px-12 py-5 rounded-full font-bold text-2xl hover:scale-110 transition shadow-2xl">QUERO MEU ATALHO (R$ 19,44)</a>
-        <p class="mt-6 text-sm opacity-70">Compra Segura | Entrega Instantânea | 7 Dias de Garantia</p>
-    </section>
-
-    <footer class="p-10 text-center text-gray-600 border-t border-zinc-800">
-        <p>Copyright © 2026 Dr. Reginaldo Oliveira. Todos os direitos reservados.</p>
     </footer>
 
 </body>
